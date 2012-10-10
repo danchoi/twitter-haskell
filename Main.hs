@@ -1,8 +1,8 @@
-{-# LANGUAGE PackageImports, NoMonomorphismRestriction #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 module Main  where
 
 import Data.Maybe (fromJust)
-import "mtl" Control.Monad.Trans
+import Control.Monad.Trans
 import Network.OAuth.Consumer
 import Network.OAuth.Http.Request
 import Network.OAuth.Http.Response
