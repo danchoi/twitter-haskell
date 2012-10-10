@@ -23,8 +23,7 @@ Wire up Snap app with this function
 -- authorized the app to access his data.
 
 injectOAuthVerifier :: String -> Token -> Token
-injectOAuthVerifier value (ReqToken app params) = ReqToken app (replace
-("oauth_verifier",value) params)
+injectOAuthVerifier value (ReqToken app params) = ReqToken app (replace ("oauth_verifier",value) params)
 injectOAuthVerifier _ token                     = token
 
 
