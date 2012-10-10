@@ -14,7 +14,6 @@ import qualified Data.Binary as Binary
 import Control.Monad (liftM)
 import qualified Data.Text as T   -- cabal install text
 import qualified Data.Text.Encoding as E   -- cabal install text
-import Data.Generics.Text  -- syb package
 import qualified Data.Char as Char
 import Data.ConfigFile -- ConfigFile 1.1.1
 import Control.Monad.Error
