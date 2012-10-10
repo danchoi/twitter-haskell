@@ -1,4 +1,4 @@
-{-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE NoMonomorphismRestriction, StandaloneDeriving #-}
 module Main  where
 
 import Data.Maybe (fromJust)
@@ -18,6 +18,9 @@ import qualified Data.Char as Char
 import Data.ConfigFile -- ConfigFile 1.1.1
 import Control.Monad.Error
 
+-- see http://stackoverflow.com/questions/12822808/how-do-you-derive-show-for-type-defined-in-someone-elses-library
+deriving instance Show Application
+deriving instance Show Token
 
 reqUrl = fromJust . parseURL $ "https://api.twitter.com/oauth/request_token"
 accUrl = fromJust . parseURL $ "https://api.twitter.com/oauth/access_token"
