@@ -38,3 +38,10 @@ https://dev.twitter.com/docs/auth/implementing-sign-twitter
 
 
 ```
+
+
+
+
+I started with this gist from mlikka && updated and modified it
+
+https://gist.github.com/548120
