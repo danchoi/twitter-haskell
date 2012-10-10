@@ -46,6 +46,10 @@ Source code for Network.OAuth.Consumer (hauth-0.2.5)
 http://hackage.haskell.org/packages/archive/hoauth/0.2.5/doc/html/src/Network-OAuth-Consumer.html
 
 
+TODO Switch from Data.ConfigFile to Data.Configurator
+
+
+
 
 ### Acknowledgements
 
@@ -55,3 +59,4 @@ http://hackage.haskell.org/packages/archive/hoauth/0.2.5/doc/html/src/Network-OA
 I started with this gist from mlikka && updated and modified it
 
 https://gist.github.com/548120
+
