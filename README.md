@@ -38,6 +38,16 @@ https://dev.twitter.com/docs/auth/implementing-sign-twitter
 
 
 ```
+Remember that I can get Token fieldlist with (oauthParams token)
+
+
+Source code for Network.OAuth.Consumer (hauth-0.2.5)
+
+http://hackage.haskell.org/packages/archive/hoauth/0.2.5/doc/html/src/Network-OAuth-Consumer.html
+
+
+
+### Acknowledgements
 
 
 
