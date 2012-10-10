@@ -19,10 +19,23 @@ Wire up Snap app with this function
 
 
 ```
--- | Injects the oauth_verifier into the token. Usually this means the user has -- authorized the app to access his data.
+-- | Injects the oauth_verifier into the token. Usually this means the user has 
+-- authorized the app to access his data.
+
 injectOAuthVerifier :: String -> Token -> Token
 injectOAuthVerifier value (ReqToken app params) = ReqToken app (replace
 ("oauth_verifier",value) params)
 injectOAuthVerifier _ token                     = token
+
+
+
+Twitter verifier looks like this
+
+GET /local-endpoint-sign-in-with-twitter/?
+        oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0&
+        oauth_verifier=uw7NjWHT6OJ1MpJOXsHfNxoAhPKpgI8BlYDhxEjIBY HTTP/1.1
+
+https://dev.twitter.com/docs/auth/implementing-sign-twitter
+
 
 ```
