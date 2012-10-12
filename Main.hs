@@ -18,7 +18,6 @@ import qualified Data.Char as Char
 import Data.ConfigFile -- ConfigFile 1.1.1
 import Control.Monad.Error
 
--- see http://stackoverflow.com/questions/12822808/how-do-you-derive-show-for-type-defined-in-someone-elses-library
 deriving instance Show Application
 deriving instance Show Token
 
@@ -36,15 +35,27 @@ authenticate :: Application -> IO Token
 authenticate app = do 
   runOAuthM (fromApplication app) $ do
     liftIO $ putStrLn "Step 1"
+
+    -- todo: add oauth_callback here
     s1 <- signRq2 HMACSHA1 Nothing reqUrl 
     liftIO $ putStrLn (show s1)
     oauthRequest CurlClient s1
+    -- should store the token 
+    -- oauth_token, oauth_token_secret
+
     liftIO $ putStrLn "Step 2"
     cliAskAuthorization authUrl
+    -- change this to redirect to 
+    -- e.g. https://api.twitter.com/oauth/authenticate?oauth_token=NPcudxy0yU5T3tBzho7iCotZ3cnetKwcTIRlX0iwRl0
+    --
     liftIO $ putStrLn "Getting Access Token"
+
     accessToken <- (signRq2 HMACSHA1 Nothing accUrl >>= oauthRequest CurlClient)
     liftIO $ putStrLn $ show (oauthParams accessToken)
     return accessToken
+{- notes
+ - A successful response contains the oauth_token, oauth_token_secret, user_id, and screen_name parameters. The token and token secret should be stored and used for future authenticated requests to the Twitter API.
+ - -}
 
 tokenFromFile :: IO Token
 tokenFromFile = do
